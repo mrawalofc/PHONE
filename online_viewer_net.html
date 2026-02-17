@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. AWALOFC PHONE - Premium iPhone Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #007AFF;
+            --secondary: #5856D6;
+            --accent: #FF9500;
+            --dark: #1C1C1E;
+            --light: #F5F5F7;
+            --success: #34C759;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            opacity: 0.05;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0,122,255,0.1) 0%, rgba(88,86,214,0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #1C1C1E 0%, #434344 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 2rem;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        .live-price-ticker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            font-weight: 600;
+            color: var(--success);
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Filters */
+        .filters {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid transparent;
+            background: white;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,122,255,0.3);
+        }
+
+        /* Products Grid */
+        .products-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--gradient-2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            z-index: 10;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .product-specs {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .current-price {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .price-change {
+            font-size: 0.875rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .price-up {
+            background: rgba(52, 199, 89, 0.1);
+            color: var(--success);
+        }
+
+        .price-down {
+            background: rgba(255, 59, 48, 0.1);
+            color: #FF3B30;
+        }
+
+        .storage-options {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .storage-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.3s;
+        }
+
+        .storage-btn:hover, .storage-btn.active {
+            border-color: var(--primary);
+            background: rgba(0,122,255,0.1);
+            color: var(--primary);
+        }
+
+        .buy-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--dark);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .buy-btn:hover {
+            background: var(--primary);
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(0,122,255,0.4);
+        }
+
+        /* Payment Section */
+        .payment-section {
+            background: white;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .payment-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .payment-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .payment-subtitle {
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .payment-method {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .payment-method:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .payment-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .payment-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .crypto-badge {
+            display: inline-block;
+            background: var(--gradient-1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-text {
+            color: #888;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .copyright strong {
+            color: white;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            animation: modalSlide 0.3s ease-out;
+        }
+
+        @keyframes modalSlide {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-icon {
+            font-size: 4rem;
+            color: var(--success);
+            margin-bottom: 1rem;
+        }
+
+        .modal h2 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .modal p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .close-modal {
+            padding: 0.75rem 2rem;
+            background: var(--dark);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .products-container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Price Update Animation */
+        .price-update {
+            animation: priceFlash 0.5s ease;
+        }
+
+        @keyframes priceFlash {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); color: var(--accent); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-mobile-alt"></i>
+                Mr. AWALOFC PHONE
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">iPhones</a></li>
+                <li><a href="#payment">Payment</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="cart-icon" onclick="showCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Premium iPhones</h1>
+            <p>Authentic Apple Products with Live Market Pricing</p>
+            <div class="live-price-ticker">
+                <span class="live-dot"></span>
+                <span>Live Market Prices Updating Every 30 Seconds</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <div class="filters">
+        <button class="filter-btn active" onclick="filterProducts('all')">All Models</button>
+        <button class="filter-btn" onclick="filterProducts('16')">iPhone 16 Series</button>
+        <button class="filter-btn" onclick="filterProducts('15')">iPhone 15 Series</button>
+        <button class="filter-btn" onclick="filterProducts('14')">iPhone 14 Series</button>
+        <button class="filter-btn" onclick="filterProducts('pro')">Pro Models</button>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="products-container" id="products">
+        <!-- Products will be injected here by JavaScript -->
+    </div>
+
+    <!-- Payment Section -->
+    <section class="payment-section" id="payment">
+        <div class="payment-container">
+            <h2 class="payment-title">All Payments Accepted</h2>
+            <p class="payment-subtitle">Secure and flexible payment options for your convenience</p>
+            
+            <div class="payment-grid">
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="payment-name">Bank Transfer</div>
+                    <div class="payment-desc">Direct bank wire transfer available worldwide</div>
+                </div>
+                
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fab fa-bitcoin"></i>
+                    </div>
+                    <div class="payment-name">Cryptocurrency</div>
+                    <div class="payment-desc">BTC, ETH, USDT & major altcoins accepted</div>
+                    <span class="crypto-badge">10% Discount</span>
+                </div>
+                
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fab fa-cc-visa"></i>
+                    </div>
+                    <div class="payment-name">Visa Card</div>
+                    <div class="payment-desc">All Visa credit & debit cards accepted</div>
+                </div>
+                
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="payment-name">Mada Card</div>
+                    <div class="payment-desc">Saudi Arabian Mada debit cards</div>
+                </div>
+                
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fab fa-cc-mastercard"></i>
+                    </div>
+                    <div class="payment-name">MasterCard</div>
+                    <div class="payment-desc">All MasterCard credit & debit cards</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-logo">Mr. AWALOFC PHONE</div>
+            <p class="footer-text">Your trusted source for authentic iPhones with real-time market pricing. We guarantee genuine Apple products with full warranty support.</p>
+            
+            <div class="social-links">
+                <a href="https://wa.me/qr/3UOF6WCQCBWBO1"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/mr.awal.ofc?igsh=MXRnc2Y1anByM2pncg=="><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/mr.awal.ofc?igsh=MXRnc2Y1anByM2pncg=="><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/mr.awal.ofc?igsh=MXRnc2Y1anByM2pncg=="><i class="fas fa-envelope"></i></a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 <strong>Mr. Awal</strong>. All Rights Reserved.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">Prices updated in real-time based on international market rates</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Added to Cart!</h2>
+            <p id="modalText">iPhone has been added to your shopping cart.</p>
+            <button class="close-modal" onclick="closeModal()">Continue Shopping</button>
+        </div>
+    </div>
+
+    <script>
+        // iPhone Data with Base Prices (USD)
+        const iPhones = [
+            {
+                id: 1,
+                name: "iPhone 16 Pro Max",
+                basePrice: 1199,
+                image: "https://kimi-web-img.moonshot.cn/img/www.apple.com/cb995a33593edf09109f14df6a9eb5bee225b34d.jpg",
+                category: ["16", "pro"],
+                specs: ["6.9″ Display", "A18 Pro Chip", "48MP Camera"],
+                storage: ["256GB", "512GB", "1TB"],
+                multiplier: [1, 1.2, 1.4]
+            },
+            {
+                id: 2,
+                name: "iPhone 16 Pro",
+                basePrice: 999,
+                image: "https://kimi-web-img.moonshot.cn/img/www.att.com/75923daf2124ef8cba9d5fb4640489bc7632c3f9.png",
+                category: ["16", "pro"],
+                specs: ["6.3″ Display", "A18 Pro Chip", "48MP Camera"],
+                storage: ["128GB", "256GB", "512GB", "1TB"],
+                multiplier: [1, 1.15, 1.35, 1.55]
+            },
+            {
+                id: 3,
+                name: "iPhone 16 Plus",
+                basePrice: 899,
+                image: "https://kimi-web-img.moonshot.cn/img/www.apple.com/59a5d9cd37f17ed260ea1b08e17e900d6f44aaca.jpg",
+                category: ["16"],
+                specs: ["6.7″ Display", "A18 Chip", "48MP Camera"],
+                storage: ["128GB", "256GB", "512GB"],
+                multiplier: [1, 1.15, 1.35]
+            },
+            {
+                id: 4,
+                name: "iPhone 16",
+                basePrice: 799,
+                image: "https://kimi-web-img.moonshot.cn/img/www.apple.com/59a5d9cd37f17ed260ea1b08e17e900d6f44aaca.jpg",
+                category: ["16"],
+                specs: ["6.1″ Display", "A18 Chip", "48MP Camera"],
+                storage: ["128GB", "256GB", "512GB"],
+                multiplier: [1, 1.15, 1.35]
+            },
+            {
+                id: 5,
+                name: "iPhone 15 Pro Max",
+                basePrice: 1099,
+                image: "https://kimi-web-img.moonshot.cn/img/www.apple.com/09f1dd7a6244c427427fe2d3b8240dc803f17857.jpg",
+                category: ["15", "pro"],
+                specs: ["6.7″ Display", "A17 Pro Chip", "48MP Camera"],
+                storage: ["256GB", "512GB", "1TB"],
+                multiplier: [1, 1.2, 1.4]
+            },
+            {
+                id: 6,
+                name: "iPhone 15 Pro",
+                basePrice: 999,
+                image: "https://kimi-web-img.moonshot.cn/img/images.macrumors.com/525249cf5f532f7b3e7b37372f2cfe550c0bf9bb.jpg",
+                category: ["15", "pro"],
+                specs: ["6.1″ Display", "A17 Pro Chip", "48MP Camera"],
+                storage: ["128GB", "256GB", "512GB", "1TB"],
+                multiplier: [1, 1.15, 1.35, 1.55]
+            },
+            {
+                id: 7,
+                name: "iPhone 15 Plus",
+                basePrice: 899,
+                image: "https://kimi-web-img.moonshot.cn/img/www.apple.com/5dec38a21ffb3a33672e119bb8ef238d987288f4.jpg",
+                category: ["15"],
+                specs: ["6.7″ Display", "A16 Chip", "48MP Camera"],
+                storage: ["128GB", "256GB", "512GB"],
+                multiplier: [1, 1.15, 1.35]
+            },
+            {
+                id: 8,
+                name: "iPhone 15",
+                basePrice: 799,
+                image: "https://kimi-web-img.moonshot.cn/img/www.apple.com/07e2483a7ae7aebc8899f7878fefca65e88f37fd.jpg",
+                category: ["15"],
+                specs: ["6.1″ Display", "A16 Chip", "48MP Camera"],
+                storage: ["128GB", "256GB", "512GB"],
+                multiplier: [1, 1.15, 1.35]
+            },
+            {
+                id: 9,
+                name: "iPhone 14 Pro Max",
+                basePrice: 999,
+                image: "https://kimi-web-img.moonshot.cn/img/www.apple.com/e6206e5356c8a8b9bc722366620772366935466f.jpg",
+                category: ["14", "pro"],
+                specs: ["6.7″ Display", "A16 Chip", "48MP Camera"],
+                storage: ["128GB", "256GB", "512GB", "1TB"],
+                multiplier: [1, 1.15, 1.35, 1.55]
+            },
+            {
+                id: 10,
+                name: "iPhone 14",
+                basePrice: 699,
+                image: "https://kimi-web-img.moonshot.cn/img/www.apple.com/bbd68d44b9a0c8c8bdc04e5e467dd27dd9e2677d.jpg",
+                category: ["14"],
+                specs: ["6.1″ Display", "A15 Chip", "12MP Camera"],
+                storage: ["128GB", "256GB", "512GB"],
+                multiplier: [1, 1.15, 1.35]
+            }
+        ];
+
+        let cart = [];
+        let currentFilter = 'all';
+        let selectedStorage = {};
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            startPriceUpdates();
+        });
+
+        // Render Products
+        function renderProducts() {
+            const container = document.getElementById('products');
+            container.innerHTML = '';
+
+            const filtered = currentFilter === 'all' 
+                ? iPhones 
+                : iPhones.filter(phone => phone.category.includes(currentFilter));
+
+            filtered.forEach((phone, index) => {
+                const card = createProductCard(phone, index);
+                container.appendChild(card);
+            });
+        }
+
+        // Create Product Card
+        function createProductCard(phone, index) {
+            const div = document.createElement('div');
+            div.className = 'product-card';
+            div.style.animation = `slideUp 0.5s ease-out ${index * 0.1}s both`;
+            
+            const initialStorage = phone.storage[0];
+            const initialPrice = calculatePrice(phone.basePrice * phone.multiplier[0]);
+            
+            selectedStorage[phone.id] = 0;
+
+            div.innerHTML = `
+                ${phone.category.includes('16') ? '<span class="product-badge">NEW</span>' : ''}
+                <img src="${phone.image}" alt="${phone.name}" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">${phone.name}</h3>
+                    <div class="product-specs">
+                        ${phone.specs.map(spec => `<span class="spec-item"><i class="fas fa-check-circle" style="color: var(--success);"></i> ${spec}</span>`).join('')}
+                    </div>
+                    
+                    <div class="storage-options">
+                        ${phone.storage.map((storage, idx) => `
+                            <button class="storage-btn ${idx === 0 ? 'active' : ''}" 
+                                    onclick="updateStorage(${phone.id}, ${idx}, this)">
+                                ${storage}
+                            </button>
+                        `).join('')}
+                    </div>
+
+                    <div class="price-container">
+                        <div class="current-price" id="price-${phone.id}">
+                            <i class="fas fa-dollar-sign" style="font-size: 1rem;"></i>
+                            <span class="price-value">${initialPrice}</span>
+                        </div>
+                        <span class="price-change price-up" id="change-${phone.id}">
+                            <i class="fas fa-arrow-up"></i> Live
+                        </span>
+                    </div>
+
+                    <button class="buy-btn" onclick="addToCart(${phone.id})">
+                        <i class="fas fa-shopping-cart"></i>
+                        Add to Cart
+                    </button>
+                </div>
+            `;
+            
+            return div;
+        }
+
+        // Calculate Price with Random Market Fluctuation
+        function calculatePrice(basePrice) {
+            // Simulate market fluctuation (-2% to +3%)
+            const fluctuation = (Math.random() * 0.05) - 0.02;
+            const adjustedPrice = basePrice * (1 + fluctuation);
+            return Math.round(adjustedPrice);
+        }
+
+        // Update Storage Selection
+        function updateStorage(phoneId, storageIndex, btn) {
+            selectedStorage[phoneId] = storageIndex;
+            
+            // Update active button
+            const buttons = btn.parentElement.querySelectorAll('.storage-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // Update price
+            const phone = iPhones.find(p => p.id === phoneId);
+            const newPrice = calculatePrice(phone.basePrice * phone.multiplier[storageIndex]);
+            
+            const priceElement = document.getElementById(`price-${phoneId}`);
+            priceElement.classList.add('price-update');
+            priceElement.querySelector('.price-value').textContent = newPrice;
+            
+            setTimeout(() => {
+                priceElement.classList.remove('price-update');
+            }, 500);
+        }
+
+        // Start Live Price Updates
+        function startPriceUpdates() {
+            setInterval(() => {
+                iPhones.forEach(phone => {
+                    const storageIdx = selectedStorage[phone.id] || 0;
+                    const newPrice = calculatePrice(phone.basePrice * phone.multiplier[storageIdx]);
+                    const oldPriceElement = document.getElementById(`price-${phone.id}`);
+                    
+                    if (oldPriceElement) {
+                        const oldPrice = parseInt(oldPriceElement.querySelector('.price-value').textContent);
+                        const changeElement = document.getElementById(`change-${phone.id}`);
+                        
+                        oldPriceElement.querySelector('.price-value').textContent = newPrice;
+                        oldPriceElement.classList.add('price-update');
+                        
+                        if (newPrice > oldPrice) {
+                            changeElement.className = 'price-change price-up';
+                            changeElement.innerHTML = '<i class="fas fa-arrow-up"></i> Rising';
+                        } else if (newPrice < oldPrice) {
+                            changeElement.className = 'price-change price-down';
+                            changeElement.innerHTML = '<i class="fas fa-arrow-down"></i> Falling';
+                        }
+                        
+                        setTimeout(() => {
+                            oldPriceElement.classList.remove('price-update');
+                        }, 500);
+                    }
+                });
+            }, 30000); // Update every 30 seconds
+        }
+
+        // Filter Products
+        function filterProducts(category) {
+            currentFilter = category;
+            
+            // Update buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(category) || 
+                    (category === 'all' && btn.textContent.includes('All'))) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            renderProducts();
+        }
+
+        // Add to Cart
+        function addToCart(phoneId) {
+            const phone = iPhones.find(p => p.id === phoneId);
+            const storageIdx = selectedStorage[phoneId] || 0;
+            const price = document.getElementById(`price-${phoneId}`).querySelector('.price-value').textContent;
+            
+            cart.push({
+                ...phone,
+                selectedStorage: phone.storage[storageIdx],
+                finalPrice: price
+            });
+            
+            document.getElementById('cartCount').textContent = cart.length;
+            
+            // Show modal
+            document.getElementById('modalText').textContent = 
+                `${phone.name} (${phone.storage[storageIdx]}) - $${price} has been added to your cart.`;
+            document.getElementById('modal').classList.add('active');
+            
+            // Animate cart icon
+            const cartIcon = document.querySelector('.cart-icon');
+            cartIcon.style.transform = 'scale(1.3)';
+            setTimeout(() => {
+                cartIcon.style.transform = 'scale(1)';
+            }, 300);
+        }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        // Show Cart (Placeholder)
+        function showCart() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            let cartText = 'Your Cart:\n\n';
+            let total = 0;
+            cart.forEach((item, idx) => {
+                cartText += `${idx + 1}. ${item.name} (${item.selectedStorage}) - $${item.finalPrice}\n`;
+                total += parseInt(item.finalPrice);
+            });
+            cartText += `\nTotal: $${total}`;
+            alert(cartText);
+        }
+
+        // Close modal on outside click
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') {
+                closeModal();
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
